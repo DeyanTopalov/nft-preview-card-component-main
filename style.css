@@ -62,6 +62,15 @@ h6 {
   isolation: isolate;
 }
 
+@font-face {
+  font-family: "Outfit";
+  src: url("assets/Outfit-VariableFont_wght.woff2") format("woff2-variations"),
+    url("assets/Outfit-VariableFont_wght.woff") format("woff-variations");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Custom Variables */
 :root {
   --clr-soft-blue: hsl(215, 51%, 70%);
@@ -71,6 +80,8 @@ h6 {
   --clr-bg-card: hsl(216, 50%, 16%);
   --clr-line: hsl(215, 32%, 27%);
   --clr-white: hsl(0, 0%, 100%);
+
+  --ff: "Outfit", sans-serif;
 
   --fs-normal: 1.125rem;
 
@@ -82,12 +93,11 @@ h6 {
 /* Global styles */
 body {
   background-color: var(--clr-bg-main);
-  font-family: ;
-  font-size: var(--fs-small);
   min-height: 100vh;
   display: grid;
   place-content: center;
   margin: 0 1.5rem;
+  /* letter-spacing: 0.05rem; */
 }
 
 /* Utility styles */
@@ -104,17 +114,21 @@ body {
 
 /* max-width desktop 350/1445 */
 .card {
+  --rem-small: 0.5rem;
+  --rem-regular: 1rem;
   background-color: var(--clr-bg-card);
   padding: 1.5rem;
   color: var(--clr-soft-blue);
   border-radius: 1rem;
   max-width: 350px;
   display: grid;
-  gap: 1rem;
+  gap: var(--rem-regular);
+  font-family: var(--ff);
+  letter-spacing: 0.01rem;
 }
 
 .card__img {
-  border-radius: 0.5rem;
+  border-radius: var(--rem-small);
   overflow: hidden;
   position: relative;
 }
@@ -138,7 +152,7 @@ body {
 
 .card__content {
   display: grid;
-  gap: 1rem;
+  gap: var(--rem-regular);
 }
 
 .card__title {
@@ -146,20 +160,25 @@ body {
   color: var(--clr-white);
 }
 
+.card__description {
+  font-family: var(--ff);
+  font-weight: var(--fw-small);
+}
+
 .card__price {
   color: var(--clr-cyan);
-  font-weight: var(--fw-normal);
+  font-weight: var(--fw-bold);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--rem-small);
 }
 
 .card__countdown {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--rem-small);
 }
 
 .card__countdown::before {
@@ -178,6 +197,7 @@ body {
 
 span {
   color: var(--clr-white);
+  font-weight: var(--fw-normal);
 }
 
 .card__avatar {
